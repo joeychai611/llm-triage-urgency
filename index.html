@@ -72,11 +72,12 @@
     .navlinks a{text-decoration:none; color:var(--muted); font-size:13px}
     .navlinks a:hover{color:var(--blue-dark)}
 
-    section{padding:64px 0}
-    .hero{padding:84px 0 42px}
+    section{padding:64px 0; scroll-margin-top:80px}
+    .hero{padding:72px 0 52px}
     .hero-grid{
       display:grid; grid-template-columns:1fr .95fr; gap:36px; align-items:center;
     }
+
     .eyebrow{
       display:inline-flex; align-items:center; gap:7px;
       background:var(--blue-soft); color:var(--blue-dark);
@@ -85,27 +86,27 @@
     }
     .dot{width:7px; height:7px; border-radius:50%; background:currentColor}
     h1{
-      margin:18px 0 18px;
+      margin:20px 0 16px;
       font-size:clamp(38px,5.6vw,64px);
       line-height:1.05; letter-spacing:-.045em;
     }
     .hero p{
-      font-size:18px; color:var(--muted); margin:0 0 10px;
+      font-size:18px; line-height:1.65; color:var(--muted); margin:0;
     }
 
     .hero-tags{
-      display:flex; flex-wrap:wrap; gap:9px; margin-top:22px;
+      display:flex; flex-wrap:wrap; gap:9px; margin-top:28px;
     }
     .hero-tag{
       display:inline-block;
       padding:8px 12px;
       border-radius:999px;
-      background:#fff;
-      border:1px solid var(--line);
-      color:#415166;
+      background:var(--blue-soft);
+      border:1px solid rgba(47,108,130,.22);
+      color:var(--blue-dark);
       font-size:13px;
       font-weight:750;
-      box-shadow:0 4px 12px rgba(30,48,80,.04);
+      box-shadow:0 4px 12px rgba(47,108,130,.08);
     }
 
     .hero-card{
@@ -443,6 +444,7 @@
     }
 
     @media(max-width:950px){
+      .hero-grid{gap:26px}
       .hero-grid, .example-grid, .survey-grid, .results-grid, .found-grid, .scope-grid{grid-template-columns:1fr}
       .pipeline{grid-template-columns:1fr 1fr}
       .next-grid{grid-template-columns:1fr}
@@ -451,6 +453,7 @@
     @media(max-width:640px){
       .navlinks{display:none}
       h1{font-size:42px}
+      .hero{padding:52px 0 40px}
       .matrix, .pipeline{grid-template-columns:1fr}
       .pair{grid-template-columns:1fr 1fr}
       .card-head{align-items:flex-start}
@@ -467,6 +470,7 @@
 <a data-en="Background" data-ko="배경" href="#background">Background</a>
 <a data-en="Research focus" data-ko="연구 초점" href="#scope">Research focus</a>
 <a data-en="Real output" data-ko="실제 출력" href="#example">Real output</a>
+<a data-en="Definition" data-ko="정의" href="#definition">Definition</a>
 <a data-en="Method" data-ko="연구 방법" href="#approach">Method</a>
 <a data-en="Results" data-ko="결과" href="#results">Results</a>
 <a data-en="Next" data-ko="다음 단계" href="#next">Next</a>
@@ -477,9 +481,9 @@
 <section class="hero">
 <div class="wrap hero-grid">
 <div>
-<div class="eyebrow"><span class="dot"></span> Patient-facing LLM safety</div>
+<div class="eyebrow" data-en="&lt;span class='dot'&gt;&lt;/span&gt; Research project" data-ko="&lt;span class='dot'&gt;&lt;/span&gt; 연구 프로젝트"><span class="dot"></span> Research project</div>
 <h1 data-en="Perceived Urgency in LLM Triage Responses" data-ko="LLM 트리아지 응답의 지각된 긴급도">Perceived Urgency in LLM Triage Responses</h1>
-<p data-en="This research studies how medical LLMs communicate urgency to patients." data-ko="이 연구는 의료 LLM이 환자에게 긴급도를 어떻게 전달하는지 연구합니다.">This research studies how medical LLMs communicate urgency to patients.</p>
+<p data-en="This research studies how medical LLMs communicate urgency to patients, and whether a gap between the urgency of the case and the urgency of the reply can be detected inside the model before the reply is written." data-ko="이 연구는 의료 LLM이 환자에게 긴급도를 어떻게 전달하는지, 그리고 사례의 긴급도와 응답의 긴급도 사이의 차이를 응답이 생성되기 전에 모델 내부에서 감지할 수 있는지 살펴봅니다.">This research studies how medical LLMs communicate urgency to patients, and whether a gap between the urgency of the case and the urgency of the reply can be detected inside the model before the reply is written.</p>
 <div class="hero-tags">
 <span class="hero-tag" data-en="Medical LLMs" data-ko="의료 LLM">Medical LLMs</span>
 <span class="hero-tag" data-en="Patient Triage" data-ko="환자 트리아지">Patient Triage</span>
@@ -535,7 +539,7 @@
 <div class="scope-num">2</div>
 <div class="scope-title" data-en="Urgency expressed in the reply" data-ko="응답에 표현된 긴급도">Urgency expressed in the reply</div>
 </div>
-<div class="scope-meta" data-en="Measured by checker + Q2" data-ko="체커 + Q2로 측정">Measured by checker + Q2</div>
+<div class="scope-meta" data-en="Measured by the checker" data-ko="체커로 측정">Measured by the checker</div>
 <div class="scope-desc" data-en="This asks what level of care the reply recommends." data-ko="응답이 어떤 수준의 진료를 권고하는지 측정합니다.">This asks what level of care the reply recommends.</div>
 <div class="scope-arrow">→</div>
 </article>
@@ -544,7 +548,7 @@
 <div class="scope-num">3</div>
 <div class="scope-title" data-en="Urgency perceived by the patient" data-ko="환자가 지각한 긴급도">Urgency perceived by the patient</div>
 </div>
-<div class="scope-meta" data-en="Main human focus" data-ko="주요 인간 평가 초점">Main human focus</div>
+<div class="scope-meta" data-en="Main focus of this study" data-ko="이 연구의 주요 초점">Main focus of this study</div>
 <div class="scope-desc" data-en="This asks how urgent the reply feels when a patient reads it." data-ko="환자가 응답을 읽었을 때 얼마나 긴급하게 느끼는지 측정합니다.">This asks how urgent the reply feels when a patient reads it.</div>
 <div class="scope-arrow">→</div>
 </article>
@@ -692,7 +696,7 @@
   </div>
 </section>
 
-<section>
+<section id="definition">
 <div class="wrap">
 <div class="section-head">
 <div class="kicker" data-en="Core idea" data-ko="핵심 개념">Core idea</div>
@@ -764,60 +768,6 @@
 </div>
 </div>
 </section>
-<section>
-<div class="wrap">
-<div class="section-head">
-<div class="kicker" data-en="Human survey" data-ko="인간 설문">Human survey</div>
-<h2 data-en="What do people understand from the reply?" data-ko="사람들은 응답에서 무엇을 이해하는가?">What do people understand from the reply?</h2>
-<p data-en="Sixteen cases were selected and compared with the automatic checker." data-ko="16개 사례를 선택해 자동 체커와 인간 평가를 비교했습니다.">Sixteen cases were selected and compared with the automatic checker.</p>
-</div>
-<div class="survey-grid">
-<article class="card" style="padding:20px;">
-<div class="question">
-<b data-en="Q1 · Perceived urgency" data-ko="Q1 · 지각된 긴급도">Q1 · Perceived urgency</b>
-<span data-en="Reading this as the patient, what would you do?" data-ko="환자 입장에서 이 응답을 읽었을 때 무엇을 하시겠습니까?">Reading this as the patient, what would you do?</span>
-</div>
-<div class="question">
-<b data-en="Q2 · Expressed urgency" data-ko="Q2 · 표현된 긴급도">Q2 · Expressed urgency</b>
-<span data-en="What level of care does the reply recommend?" data-ko="응답은 어떤 수준의 진료를 권고합니까?">What level of care does the reply recommend?</span>
-</div>
-<div class="question">
-<b data-en="Q4 · Conditional wording" data-ko="Q4 · 조건부 표현">Q4 · Conditional wording</b>
-<span data-en="Does the reply change its recommendation depending on symptoms or conditions?" data-ko="응답이 증상이나 조건에 따라 권고를 바꿉니까?">Does the reply change its recommendation depending on symptoms or conditions?</span>
-</div>
-</article>
-<article class="card" style="padding:20px;">
-<table class="table">
-<thead>
-<tr>
-<th data-en="Question" data-ko="질문">Question</th>
-<th data-en="Agreement" data-ko="일치">Agreement</th>
-<th data-en="κ" data-ko="κ">κ</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="tag q1" data-en="Q1 Perceived" data-ko="Q1 지각">Q1 Perceived</span></td>
-<td>8 / 16</td>
-<td>0.33</td>
-</tr>
-<tr>
-<td><span class="tag q2" data-en="Q2 Expressed" data-ko="Q2 표현">Q2 Expressed</span></td>
-<td>10 / 16</td>
-<td>0.44</td>
-</tr>
-<tr>
-<td><span class="tag q4" data-en="Q4 Conditional" data-ko="Q4 조건">Q4 Conditional</span></td>
-<td>13 / 16</td>
-<td>0.68</td>
-</tr>
-</tbody>
-</table>
-<div class="note" data-en="&lt;strong&gt;Current interpretation:&lt;/strong&gt; the checker matches expressed urgency better than perceived urgency. So, for now, the checker is used mainly as a measure of the urgency recommended in the reply." data-ko="&lt;strong&gt;현재 해석:&lt;/strong&gt; 체커는 지각된 긴급도보다 표현된 긴급도와 더 잘 일치합니다. 따라서 현재는 체커를 주로 응답이 권고하는 긴급도를 측정하는 도구로 사용합니다."><strong>Current interpretation:</strong> the checker matches expressed urgency better than perceived urgency. So, for now, the checker is used mainly as a measure of the urgency recommended in the reply.</div>
-</article>
-</div>
-</div>
-</section>
 <section id="results">
 <div class="wrap">
 <div class="section-head">
@@ -859,29 +809,6 @@
 <h2 data-en="Main finding so far" data-ko="현재까지의 주요 발견">Main finding so far</h2>
 <p data-en="Prompt-end and response-end AUROC are almost the same. This means information linked to later under-escalation is already detectable before the reply is generated. This does not yet prove that a specific safety neuron causes the error." data-ko="프롬프트 끝과 응답 끝의 AUROC가 거의 같습니다. 이는 이후 과소 긴급도와 관련된 정보가 응답이 생성되기 전부터 감지 가능하다는 뜻입니다. 하지만 특정한 '안전 뉴런'이 오류를 일으킨다는 것을 아직 증명한 것은 아닙니다.">Prompt-end and response-end AUROC are almost the same. This means information linked to later under-escalation is already detectable before the reply is generated. This does not yet prove that a specific safety neuron causes the error.</p>
 </div>
-</div>
-</section>
-<section id="found">
-<div class="wrap">
-<div class="section-head">
-<h2 data-en="What we have found so far" data-ko="현재까지 확인된 결과">What we have found so far</h2>
-<p data-en="The failures run in both directions, and the model is not simply cautious — it often under-reacts on the cases where being wrong costs the most." data-ko="오류는 두 방향으로 모두 나타나며, 모델이 단순히 보수적으로 반응하는 것은 아닙니다. 특히 잘못 판단했을 때 위험이 큰 사례에서 과소 대응이 나타납니다.">The failures run in both directions, and the model is not simply cautious — it often under-reacts on the cases where being wrong costs the most.</p>
-</div>
-<div class="found-grid">
-<article class="found-card">
-<div class="found-number red">19.8%</div>
-<p data-en="of urgent cases get a reply recommending only routine care" data-ko="긴급 사례 중 응답이 일반 진료만 권고한 비율">of urgent cases get a reply recommending only routine care</p>
-</article>
-<article class="found-card">
-<div class="found-number">10.7%</div>
-<p data-en="of non-urgent cases get an urgent reply — so the caution is not uniform" data-ko="비긴급 사례 중 긴급 진료를 권고한 비율 — 즉, 보수적 반응이 일관되지는 않음">of non-urgent cases get an urgent reply — so the caution is not uniform</p>
-</article>
-<article class="found-card">
-<div class="found-number blue">0.87</div>
-<p data-en="AUROC predicting which replies will fall short — visible before the model writes a word" data-ko="응답이 충분히 긴급하지 않을 사례를 예측한 AUROC — 모델이 한 단어도 쓰기 전에 신호가 보임">AUROC predicting which replies will fall short — visible before the model writes a word</p>
-</article>
-</div>
-<p class="found-note" data-en="The last number is the surprising one. The signal is already present when the model finishes reading the case. This suggests the under-escalation signal may be detectable before writing begins, rather than only after the weak reply appears." data-ko="마지막 수치가 가장 흥미롭습니다. 모델이 사례를 모두 읽은 시점에 이미 신호가 존재합니다. 이는 긴급도가 부족한 응답이 나온 뒤에만 발견되는 것이 아니라, 응답 생성 전에 과소 긴급도 신호를 감지할 수 있음을 시사합니다.">The last number is the surprising one. The signal is already present when the model finishes reading the case. This suggests the under-escalation signal may be detectable before writing begins, rather than only after the weak reply appears.</p>
 </div>
 </section>
 <section id="next">
